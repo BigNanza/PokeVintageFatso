@@ -251,6 +251,17 @@
             left: 440px;
             top: 240px;
         }
+
+        .mobileCategories {
+            display: none;
+        }
+        @media screen and (max-width: 960px) {
+            .mobileCategories {
+                font-size: 30px;
+                display: block;
+            }
+        }
+
     </style>
     <script src="https://kit.fontawesome.com/f189614d97.js" crossorigin="anonymous"></script>
 
@@ -312,6 +323,9 @@
             <h1>You Won!</h1>
             <p1>Total Percentage: </p1>
             <p2 id="total"></p2>
+        </div>
+        <div class="mobileCategories">
+            <p1 id="mobileCategories">HELLO</p1>
         </div>
 </body>
 <script>
@@ -12872,6 +12886,7 @@
 
     const resultsBox = document.querySelector(".result-box");
     const inputBox = document.getElementById("input-box");
+    //const mobileCategories = document.getElementById("mobileCategories");
 
     inputBox.onkeyup = function() {
         let result = [];
@@ -12909,18 +12924,25 @@
         currentCategories = generateCategories(categories);
         console.log("Seed: " + fella.indexOf(currentCategories));
         //currentCategories = ['Bug', 'Fire', 'Rock', 'Flying', 'Dualtype', 'Monotype'];
-        row1.textContent = currentCategories[0];
+        rowA = currentCategories[0];
+        rowB = currentCategories[1];
+        rowC = currentCategories[2];
+        colA = currentCategories[3];
+        colB = currentCategories[4];
+        colC = currentCategories[5];
+        row1.textContent = rowA;
         row1.style.fontSize = '40px';
         row1.style.align = 'center';
-        row2.textContent = currentCategories[1];
+        row2.textContent = rowB;
         row2.style.fontSize = '40px';
         row2.style.align = 'center';
-        row3.textContent = currentCategories[2];
+        row3.textContent = rowC;
         row3.style.fontSize = '40px';
         row3.style.align = 'center';
-        col1.textContent = currentCategories[3];
-        col2.textContent = currentCategories[4];
-        col3.textContent = currentCategories[5];
+        col1.textContent = colA;
+        col2.textContent = colB;
+        col3.textContent = colC;
+        mobileCategories.textContent = "Rows: " + rowA + ", " + rowB + ", " + rowC + ". Columns: " + colA + ", " + colB + ", " + colC + ".";
     }
 
     searchButton.addEventListener('click', () => {
