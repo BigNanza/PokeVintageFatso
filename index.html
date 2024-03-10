@@ -251,6 +251,7 @@
             left: 440px;
             top: 240px;
         }
+
     </style>
     <script src="https://kit.fontawesome.com/f189614d97.js" crossorigin="anonymous"></script>
 
@@ -12921,6 +12922,22 @@
         col1.textContent = currentCategories[3];
         col2.textContent = currentCategories[4];
         col3.textContent = currentCategories[5];
+        zoomIfNeeded();
+    }
+
+    window.onresize = function() {
+        zoomIfNeeded();
+    }
+
+    function zoomIfNeeded() {
+        var viewportWidth = window.innerWidth;
+        var viewportHeight = window.innerHeight;
+
+        if (viewportWidth < 1920 || viewportHeight < 1080) {
+            var scale = Math.min(1920 / viewportWidth, 1080 / viewportHeight);
+            document.body.style.transform = "scale(" + (1 / scale) + ")";
+            document.body.style.transformOrigin = "top left";
+        }
     }
 
     searchButton.addEventListener('click', () => {
