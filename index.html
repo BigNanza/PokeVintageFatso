@@ -12934,7 +12934,7 @@
         var viewportHeight = window.innerHeight;
 
         if (viewportWidth < 1920 || viewportHeight < 1080) {
-            var scale = Math.min(1920 / viewportWidth, 1080 / viewportHeight);
+            var scale = Math.max(1920 / viewportWidth, 1080 / viewportHeight);
             document.body.style.transform = "scale(" + (1 / scale) + ")";
             document.body.style.transformOrigin = "top left";
         }
