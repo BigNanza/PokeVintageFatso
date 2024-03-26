@@ -12931,8 +12931,8 @@ window.onload = function() {
 }
 
 window.onresize = function() {
+    container.style.transform = "translateX(" + (0) + "px)";
     zoomIfNeeded();
-    container.style.transform = "translateX("  (translater * -1) + "px)";
     translatePage();
 }
 
@@ -12963,6 +12963,25 @@ function translatePage() {
     container.style.transform = "translateX(" + (window.innerWidth - personamente) + "px)";
     //container.style.transform = "translateX(" + ((window.innerWidth - personamente)/2) + "px)";
     translater = window.innerWidth-personamente;
+    var pixel = document.elementFromPoint(0, 0);
+    var num = 0;
+    var color = window.getComputedStyle(pixel).backgroundColor;
+    while (!(color==='rgb(51, 51, 51)')) {
+        num++;
+        var pixel = document.elementFromPoint(num, 0)
+        var color = window.getComputedStyle(pixel).backgroundColor;
+    }    
+    var bigPoopa = num;
+    while (color==='rgb(51, 51, 51)') {
+        num++;
+        var pixel = document.elementFromPoint(num, 0)
+        var color = window.getComputedStyle(pixel).backgroundColor;
+    }
+    num--;    
+    var theBigSmellaFella = (bigPoopa + num) / 2;    
+    container.style.transform = "translateX(" + (0) + "px)";
+    container.style.transform = "translateX(" + ((window.innerWidth / 2) - theBigSmellaFella + translater) + "px)";
+    translater = (window.innerWidth / 2) - theBigSmellaFella + translater;
 }
 
 function findRightmostHeaderPixel() {
