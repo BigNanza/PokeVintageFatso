@@ -12931,9 +12931,11 @@ window.onload = function() {
 }
 
 window.onresize = function() {
-    container.style.transform = "translateX(" + (0) + "px)";
-    zoomIfNeeded();
-    translatePage();
+    if (window.innerWidth > 960) {
+        container.style.transform = "translateX(" + (0) + "px)";
+        zoomIfNeeded();
+        translatePage();
+    }
 }
 
     let translater = 0;
