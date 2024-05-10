@@ -13022,16 +13022,11 @@ searchButton.addEventListener('click', () => {
     if (!data.hasOwnProperty(input)) {alert("That is NOT a pokemon!");}
     else {
         cats.forEach(one => {
-            if (categories.indexOf(one) < 19) {
-                if (categories.indexOf(one) != pokemon[1] && categories.indexOf(one) != pokemon[2]) {cont = true;};
-            }
-            else if (categories.indexOf(one) > 18 && categories.indexOf(one) < 23) {
-                if (categories.indexOf(one) - 18 != pokemon[3]) {cont = true;}
-            }
-            else if (categories.indexOf(one) == 0 && pokemon[2] != 0) {cont = true;}
-            else if (categories.indexOf(one) == 23 && pokemon[2] == 0) {cont = true;}
-            else if (categories.indexOf(one) > 23) 
-                {if (categories.indexOf(one) - 23 != pokemon[0]) {cont = true;}}
+            if (categories.indexOf(one) == 0 && pokemon[2] != 0) cont = true;
+            else if (categories.indexOf(one) < 19 && !(pokemon[1] == categories.indexOf(one) || pokemon[2] == categories.indexOf(one))) cont = true;
+            else if ((categories.indexOf(one) > 18 && categories.indexOf(one) < 23) && (categories.indexOf(one) - 18 != pokemon[3])) cont = true;
+            else if (categories.indexOf(one) == 23 && pokemon[2] == 0) cont = true;
+            else if (categories.indexOf(one) > 23 && categories.indexOf(one) - 23 != pokemon[0]) cont = true
         });}
         if (cont) alert("That pokemon is NOT ADEQUATE for the aforementioned requirements!");
             else {
